@@ -11,8 +11,6 @@ import (
 	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-graphql/graphql-api/graph/model"
 )
 
-var influxdb = database.ConnectInfluxdb()
-
 // CreateStates is the resolver for the createStates field.
 func (r *mutationResolver) CreateStates(ctx context.Context, input []*model.CreateStatesInput) ([]*model.State, error) {
 	return influxdb.CreateStates(input)
@@ -43,3 +41,4 @@ type queryResolver struct{ *Resolver }
 //   - When renaming or deleting a resolver the old code will be put in here. You can safely delete
 //     it when you're done.
 //   - You have helper methods in this file. Move them out to keep these resolver files clean.
+var influxdb = database.ConnectInfluxdb()

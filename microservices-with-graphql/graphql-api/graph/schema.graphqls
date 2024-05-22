@@ -37,7 +37,7 @@ type Query {
 }
 
 type Mutation {
-  createStates(input: [CreateStatesInput!]!): [State!]!
+  createStates(input: [CreateStatesInput]!): [State!]!
 }
 
 input CreateStatesInput {

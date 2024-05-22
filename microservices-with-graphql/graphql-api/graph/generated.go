@@ -342,7 +342,7 @@ func (ec *executionContext) field_Mutation_createStates_args(ctx context.Context
 	var arg0 []*model.CreateStatesInput
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNCreateStatesInput2ᚕᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNCreateStatesInput2ᚕᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -3797,7 +3797,7 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) unmarshalNCreateStatesInput2ᚕᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInputᚄ(ctx context.Context, v interface{}) ([]*model.CreateStatesInput, error) {
+func (ec *executionContext) unmarshalNCreateStatesInput2ᚕᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInput(ctx context.Context, v interface{}) ([]*model.CreateStatesInput, error) {
 	var vSlice []interface{}
 	if v != nil {
 		vSlice = graphql.CoerceList(v)
@@ -3806,17 +3806,12 @@ func (ec *executionContext) unmarshalNCreateStatesInput2ᚕᚖgithubᚗcomᚋPhi
 	res := make([]*model.CreateStatesInput, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNCreateStatesInput2ᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInput(ctx, vSlice[i])
+		res[i], err = ec.unmarshalOCreateStatesInput2ᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInput(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
 	}
 	return res, nil
-}
-
-func (ec *executionContext) unmarshalNCreateStatesInput2ᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInput(ctx context.Context, v interface{}) (*model.CreateStatesInput, error) {
-	res, err := ec.unmarshalInputCreateStatesInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
@@ -4287,6 +4282,14 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	}
 	res := graphql.MarshalBoolean(*v)
 	return res
+}
+
+func (ec *executionContext) unmarshalOCreateStatesInput2ᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐCreateStatesInput(ctx context.Context, v interface{}) (*model.CreateStatesInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputCreateStatesInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOIdentifierFilterInput2ᚖgithubᚗcomᚋPhilippWegnerᚋhochschuleᚑbochumᚑmasterarbeitᚋmicroservicesᚑwithᚑgraphqlᚋgraphqlᚑapiᚋgraphᚋmodelᚐIdentifierFilterInput(ctx context.Context, v interface{}) (*model.IdentifierFilterInput, error) {

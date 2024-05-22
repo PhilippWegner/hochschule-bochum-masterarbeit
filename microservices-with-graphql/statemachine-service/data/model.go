@@ -9,14 +9,14 @@ import (
 )
 
 type Plc struct {
-	Time       string
-	Machine    string
+	Time       string `json:"time"`
+	Machine    string `json:"machine"`
 	Identifier []*Identifier
 }
 
 type Identifier struct {
-	Name  string
-	Value float64
+	Name  string  `json:"name"`
+	Value float64 `json:"value"`
 }
 
 func (identifier Identifier) String() string {
@@ -28,11 +28,29 @@ func (plc Plc) String() string {
 }
 
 type State struct {
-	Time    string
-	Machine string
-	Name    string
-	Color   string
-	Value   int
+	Time    string `json:"time"`
+	Machine string `json:"machine"`
+	Name    string `json:"name"`
+	Color   string `json:"color"`
+	Value   int    `json:"value"`
+}
+
+type CreateStatesInput struct {
+	Time    string `json:"time"`
+	Machine string `json:"machine"`
+	Name    string `json:"name"`
+	Color   string `json:"color"`
+	Value   int    `json:"value"`
+}
+
+func NewCreateStatesInput(state *State) *CreateStatesInput {
+	return &CreateStatesInput{
+		Time:    state.Time,
+		Machine: state.Machine,
+		Name:    state.Name,
+		Color:   state.Color,
+		Value:   state.Value,
+	}
 }
 
 type ApiRepository struct {
@@ -45,12 +63,11 @@ func NewApiRepository(graphql_api string) *ApiRepository {
 
 func (r *ApiRepository) GetPlcs(machine string, time string, limit int) ([]*Plc, error) {
 	log.Println("GetPlcs")
-	log.Println(r.graphql_api)
+	// log.Println(r.graphql_api)
 	client := graphql.NewClient(r.graphql_api, nil)
 	var query struct {
 		Plcs []*Plc `graphql:"plcs(machine: $machine, time: $time, limit: $limit, filter: {identifier: {in: $in}})"`
 	}
-	log.Println(query.Plcs)
 	variables := map[string]interface{}{
 		"machine": machine,
 		"time":    time,
@@ -62,9 +79,7 @@ func (r *ApiRepository) GetPlcs(machine string, time string, limit int) ([]*Plc,
 		log.Println(err)
 		return nil, err
 	}
-	for _, plc := range query.Plcs {
-		log.Println(plc)
-	}
+	// log.Println(query.Plcs)
 	return query.Plcs, nil
 }
 
@@ -74,7 +89,7 @@ func (r *ApiRepository) GetStates(machine string, limit int) ([]*State, error) {
 	var query struct {
 		States []*State `graphql:"states(machine: $machine, limit: $limit)"`
 	}
-	log.Println(query.States)
+	// log.Println(query.States)
 	variables := map[string]interface{}{
 		"machine": machine,
 		"limit":   limit,
@@ -84,24 +99,23 @@ func (r *ApiRepository) GetStates(machine string, limit int) ([]*State, error) {
 		log.Println(err)
 		return nil, err
 	}
-	for _, state := range query.States {
-		log.Println(state)
-	}
 	return query.States, nil
 }
 
-func (r *ApiRepository) CreateState(state []*State) error {
+func (r *ApiRepository) CreateState(statesInput []*CreateStatesInput) error {
+	log.Println("CreateState")
+	// log.Println(statesInput)
 	client := graphql.NewClient(r.graphql_api, nil)
 	var mutation struct {
-		CreateStates []*State `graphql:"createStates(input: $states)"`
+		CreateStates []*State `graphql:"createStates(input: $input)"`
 	}
 	variables := map[string]interface{}{
-		"states": state,
+		"input": statesInput,
 	}
 	err := client.Mutate(context.Background(), &mutation, variables)
 	if err != nil {
 		return err
 	}
-	log.Println(mutation.CreateStates)
+	// log.Println(mutation.CreateStates)
 	return nil
 }
