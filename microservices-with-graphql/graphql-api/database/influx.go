@@ -84,7 +84,7 @@ func (db *Influxdb) CreateStates(createStatesInput []*model.CreateStatesInput) (
 func (db *Influxdb) GetStates(machine string, limit int) ([]*model.State, error) {
 	log.Println("GetStates")
 	stmt := fmt.Sprintf("SELECT time, machine, state, color, value from statemachine WHERE machine = '%s' ORDER BY time DESC LIMIT %d", machine, limit)
-	log.Println(stmt)
+	// log.Println(stmt)
 	response, err := db.executeQuery(stmt)
 	if err != nil {
 		return nil, err
@@ -117,10 +117,10 @@ func (db *Influxdb) GetPlcs(machine string, time string, limit int, filter *mode
 	log.Println("GetPlcs")
 	stmt := ""
 	if filter == nil || filter.Identifier == nil {
-		log.Println("filter is nil")
+		// log.Println("filter is nil")
 		stmt = fmt.Sprintf("SELECT time, maschine, bezeichner, value from data WHERE maschine = '%s' AND time >= %s ORDER BY time ASC LIMIT %d", machine, time, limit)
 	} else if len(filter.Identifier.In) > 0 {
-		log.Println("filter.Identifier.In is filled")
+		// log.Println("filter.Identifier.In is filled")
 		// create empty list
 		var identifiers_in []string
 		// for all elements in the filter.Identifier.In array create a query
@@ -131,7 +131,7 @@ func (db *Influxdb) GetPlcs(machine string, time string, limit int, filter *mode
 		identifers_in_join := strings.Join(identifiers_in, " OR ")
 		stmt = fmt.Sprintf("SELECT time, maschine, bezeichner, value from data WHERE maschine = '%s' AND time >= %s AND (%s) ORDER BY time ASC LIMIT %d", machine, time, identifers_in_join, limit)
 	}
-	log.Println(stmt)
+	// log.Println(stmt)
 	// execute query
 	response, err := db.executeQuery(stmt)
 	if err != nil {
@@ -139,7 +139,7 @@ func (db *Influxdb) GetPlcs(machine string, time string, limit int, filter *mode
 	}
 	// get values
 	values := response.Results[0].Series[0].Values
-	log.Println(values)
+	// log.Println(values)
 	// pivotize
 	plcs := data.Pivotize(values)
 	return plcs, nil

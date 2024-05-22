@@ -10,7 +10,7 @@ import (
 var (
 	graphql_api = "http://localhost:8080/query"
 	machines    = []string{"presse_11"}
-	limit       = 2000
+	limit       = 10000
 )
 
 type Config struct {
