@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package = "github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-grpc/grpc-api/protobuf";
+
+service ApiService {
+    rpc CreateStates(CreateStatesRequest) returns (CreateStatesResponse) {}
+    rpc GetStates(GetStatesRequest) returns (GetStatesResponse) {}
+    rpc GetPlcs(GetPlcsRequest) returns (GetPlcsResponse) {}
+}
+
+message State {
+    string time = 1;
+    string machine = 2;
+    string name = 3;
+    string color = 4;
+    int32 value = 5;
+}
+
+message Plc {
+    string time = 1;
+    string machine = 2;
+    Identifier identifier = 3;
+}
+
+message Identifier {
+    string name = 1;
+    double value = 2;
+}
+
+message CreateStatesRequest {
+    repeated State states = 1;
+}
+
+message CreateStatesResponse {
+    string result = 1;
+}
+
+message GetStatesRequest {
+    string machine = 1;
+    int32 limit = 2;
+}
+
+message GetStatesResponse {
+    repeated State states = 1;
+}
+
+message GetPlcRequest {
+    string machine = 1;
+    string time = 2;
+    int32 limit = 3
+}
+
+message GetPlcsResponse {
+    repeated State states = 1;
+}
+
+
