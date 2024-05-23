@@ -20,8 +20,6 @@ func (c *Config) calculate(machine string) error {
 	if err == nil && len(state.States) > 0 {
 		lastState = state.States[0]
 	}
-	// log.Println("lastState:", lastState)
-	// plcs, err := c.Client.GetPlcs(machine, lastState.Time, limit)
 	plcs, err := c.Client.GetPlcs(context.Background(), &model.GetPlcsRequest{Machine: machine, Time: lastState.Time, Limit: int32(limit)})
 	if err != nil {
 		return err
@@ -31,7 +29,8 @@ func (c *Config) calculate(machine string) error {
 		state := data.NewState(plc)
 		states = append(states, state)
 	}
-	// err = c.ApiRepository.CreateState(states)
+	// log count of states
+	log.Printf("State created: %d\n", len(states))
 	_, err = c.Client.CreateStates(context.Background(), &model.CreateStatesRequest{States: states})
 	if err != nil {
 		return err

@@ -1,0 +1,39 @@
+2024/05/23 22:36:36 Starting application
+2024/05/23 22:36:36 Starting looprunner
+2024/05/23 22:36:36 Message: no data found, Locations: [], Extensions: map[], Path: [states]
+2024/05/23 22:36:36 calculate err: Message: no data found, Locations: [], Extensions: map[], Path: [states]
+2024/05/23 22:36:37 State created: 1999
+2024/05/23 22:36:37 looprunner took 596.2958ms
+2024/05/23 22:36:37 State created: 1999
+2024/05/23 22:36:38 looprunner took 530.3885ms
+2024/05/23 22:36:38 State created: 1999
+2024/05/23 22:36:38 looprunner took 531.2304ms
+2024/05/23 22:36:39 State created: 1999
+2024/05/23 22:36:39 looprunner took 538.9519ms
+2024/05/23 22:36:39 State created: 1999
+2024/05/23 22:36:39 looprunner took 528.2891ms
+2024/05/23 22:36:40 State created: 1999
+2024/05/23 22:36:40 looprunner took 516.8693ms
+2024/05/23 22:36:40 State created: 1999
+2024/05/23 22:36:40 looprunner took 516.0646ms
+2024/05/23 22:36:41 State created: 1999
+2024/05/23 22:36:41 looprunner took 539.6009ms
+2024/05/23 22:36:41 State created: 1999
+2024/05/23 22:36:41 looprunner took 527.2779ms
+2024/05/23 22:36:42 State created: 1999
+2024/05/23 22:36:42 looprunner took 527.6359ms
+2024/05/23 22:36:42 State created: 1999
+2024/05/23 22:36:42 looprunner took 596.2559ms
+2024/05/23 22:36:43 State created: 1999
+2024/05/23 22:36:43 looprunner took 595.6432ms
+2024/05/23 22:36:43 State created: 1999
+2024/05/23 22:36:43 looprunner took 556.2031ms
+2024/05/23 22:36:44 State created: 1999
+2024/05/23 22:36:44 looprunner took 583.816ms
+2024/05/23 22:36:45 State created: 1999
+2024/05/23 22:36:45 looprunner took 537.9897ms
+2024/05/23 22:36:45 State created: 1999
+2024/05/23 22:36:45 looprunner took 503.9874ms
+2024/05/23 22:36:46 State created: 1999
+2024/05/23 22:36:46 looprunner took 511.3784ms
+exit status 0xc000013a

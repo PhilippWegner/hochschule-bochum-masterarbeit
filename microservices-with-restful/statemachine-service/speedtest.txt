@@ -1,0 +1,40 @@
+2024/05/23 22:39:27 Starting application
+2024/05/23 22:39:27 Starting looprunner
+2024/05/23 22:39:27 calculate err: json: cannot unmarshal object into Go value of type []*data.State
+2024/05/23 22:39:27 State created: 357
+2024/05/23 22:39:27 looprunner took 487.7173ms
+2024/05/23 22:39:28 State created: 357
+2024/05/23 22:39:28 looprunner took 448.5048ms
+2024/05/23 22:39:28 State created: 357
+2024/05/23 22:39:28 looprunner took 394.2331ms
+2024/05/23 22:39:28 State created: 357
+2024/05/23 22:39:28 looprunner took 385.7569ms
+2024/05/23 22:39:29 State created: 357
+2024/05/23 22:39:29 looprunner took 413.017ms
+2024/05/23 22:39:29 State created: 357
+2024/05/23 22:39:29 looprunner took 431.2531ms
+2024/05/23 22:39:30 State created: 357
+2024/05/23 22:39:30 looprunner took 441.8901ms
+2024/05/23 22:39:30 State created: 357
+2024/05/23 22:39:30 looprunner took 443.3015ms
+2024/05/23 22:39:31 State created: 357
+2024/05/23 22:39:31 looprunner took 378.0693ms
+2024/05/23 22:39:31 State created: 357
+2024/05/23 22:39:31 looprunner took 424.9051ms
+2024/05/23 22:39:31 State created: 357
+2024/05/23 22:39:31 looprunner took 431.4719ms
+2024/05/23 22:39:32 State created: 357
+2024/05/23 22:39:32 looprunner took 386.4578ms
+2024/05/23 22:39:32 State created: 357
+2024/05/23 22:39:32 looprunner took 391.8928ms
+2024/05/23 22:39:33 State created: 357
+2024/05/23 22:39:33 looprunner took 478.1199ms
+2024/05/23 22:39:33 State created: 357
+2024/05/23 22:39:33 looprunner took 375.5756ms
+2024/05/23 22:39:33 State created: 357
+2024/05/23 22:39:33 looprunner took 368.3557ms
+2024/05/23 22:39:34 State created: 357
+2024/05/23 22:39:34 looprunner took 442.3817ms
+2024/05/23 22:39:34 State created: 357
+2024/05/23 22:39:34 looprunner took 377.4779ms
+exit status 0xc000013a

@@ -33,6 +33,7 @@ func (c *Config) calculate(machine string) error {
 	for _, state := range states {
 		createStatesInput = append(createStatesInput, data.NewCreateStatesInput(state))
 	}
+	log.Printf("State created: %d\n", len(createStatesInput))
 	err = c.ApiRepository.CreateState(createStatesInput)
 	if err != nil {
 		return err

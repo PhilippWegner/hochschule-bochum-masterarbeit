@@ -29,6 +29,7 @@ func (c *Config) calculate(machine string) error {
 		state := data.NewState(plc)
 		states = append(states, state)
 	}
+	log.Printf("State created: %d\n", len(states))
 	err = c.ApiRepository.CreateState(states)
 	if err != nil {
 		return err
