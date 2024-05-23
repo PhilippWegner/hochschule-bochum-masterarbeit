@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"sync"
+	"time"
 
 	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-graphql/statemachine-service/data"
 )
@@ -26,7 +27,10 @@ func main() {
 
 	log.Println("Starting looprunner")
 	for {
+		start := time.Now()
 		app.looprunner()
+		duration := time.Since(start)
+		log.Printf("looprunner took %v\n", duration)
 	}
 }
 

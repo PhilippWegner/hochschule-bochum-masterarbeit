@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-graphql/statemachine-service/data"
 )
 
@@ -12,7 +14,7 @@ func (c *Config) calculate(machine string) error {
 	state, err := c.ApiRepository.GetStates(machine, 1)
 	// log.Println("calculate:", state)
 	if err != nil {
-		return err
+		log.Println("calculate err:", err)
 	}
 	if len(state) > 0 {
 		lastState = *state[0]
