@@ -1,0 +1,203 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a RESTful API for a plc and state data.",
+        "title": "RESTful API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api",
+    "paths": {
+        "/plcs/{machine}/{time}/{limit}": {
+            "get": {
+                "description": "Get plc data",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "plc"
+                ],
+                "summary": "Get plc data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Machine",
+                        "name": "machine",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Time",
+                        "name": "time",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Plc"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/states": {
+            "post": {
+                "description": "Create states",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "state"
+                ],
+                "summary": "Create states",
+                "parameters": [
+                    {
+                        "description": "States",
+                        "name": "states",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.State"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/states/{machine}/{limit}": {
+            "get": {
+                "description": "Get state data",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "state"
+                ],
+                "summary": "Get state data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Machine",
+                        "name": "machine",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.State"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.Identifier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
+                }
+            }
+        },
+        "model.Plc": {
+            "type": "object",
+            "properties": {
+                "identifier": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Identifier"
+                    }
+                },
+                "machine": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.State": {
+            "type": "object",
+            "properties": {
+                "color": {
+                    "type": "string"
+                },
+                "machine": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

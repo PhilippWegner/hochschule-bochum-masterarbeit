@@ -6,6 +6,8 @@ import (
 	"os"
 	"time"
 
+	_ "github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-restful/restful-api/docs"
+
 	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-restful/restful-api/database"
 )
 
@@ -15,6 +17,11 @@ type Config struct {
 	Repo database.Repository
 }
 
+// @title RESTful API
+// @version 1.0
+// @description This is a RESTful API for a plc and state data.
+// @host localhost:8080
+// @BasePath /api
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
