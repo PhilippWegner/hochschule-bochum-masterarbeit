@@ -24,3 +24,23 @@ func (api *ModelServiceServer) GetPlcs(ctx context.Context, in *model.GetPlcsReq
 	}
 	return &model.GetPlcsResponse{Plcs: plcs}, nil
 }
+
+func (api *ModelServiceServer) GetStates(ctx context.Context, in *model.GetStatesRequest) (*model.GetStatesResponse, error) {
+	machine := in.GetMachine()
+	limit := int(in.GetLimit())
+
+	states, err := influx.GetStates(machine, limit)
+	if err != nil {
+		return nil, err
+	}
+	return &model.GetStatesResponse{States: states}, nil
+}
+
+func (api *ModelServiceServer) CreateStates(ctx context.Context, in *model.CreateStatesRequest) (*model.CreateStatesResponse, error) {
+	states := in.GetStates()
+	err := influx.CreateStates(states)
+	if err != nil {
+		return nil, err
+	}
+	return &model.CreateStatesResponse{}, nil
+}

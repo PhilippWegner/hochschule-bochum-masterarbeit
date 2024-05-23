@@ -7,6 +7,7 @@ option go_package = "github.com/PhilippWegner/hochschule-bochum-masterarbeit/mic
 service ModelService {
     rpc GetPlcs(GetPlcsRequest) returns (GetPlcsResponse) {}
     rpc GetStates(GetStatesRequest) returns (GetStatesResponse) {}
+    rpc CreateStates(CreateStatesRequest) returns (CreateStatesResponse) {}
 }
 
 
@@ -33,7 +34,6 @@ message GetPlcsResponse {
 
 message GetStatesRequest {
     string machine = 1;
-    string time = 2;
     int32 limit = 3;
 }
 
@@ -44,7 +44,15 @@ message GetStatesResponse {
 message State {
     string time = 1;
     string machine = 2;
-    string name = 3;
+    string state = 3;
     string color = 4;
     int32 value = 5;
+}
+
+message CreateStatesRequest {
+    repeated State states = 1;
+}
+
+message CreateStatesResponse {
+    string message = 1;
 }

@@ -6,4 +6,6 @@ import (
 
 type Repository interface {
 	GetPlcs(machine string, time string, limit int) ([]*model.Plc, error)
+	GetStates(machine string, limit int) ([]*model.State, error)
+	CreateStates(states []*model.State) error
 }
