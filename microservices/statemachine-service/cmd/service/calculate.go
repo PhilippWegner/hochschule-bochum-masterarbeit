@@ -11,7 +11,7 @@ var DEFAULT_LAST_STATE = data.State{Time: "0"}
 func (c *Config) calculate(machine string) error {
 	// get last states
 	lastState := DEFAULT_LAST_STATE
-	state, err := c.ApiRepository.GetStates(machine, 1)
+	state, err := c.ApiRepository.GetStates(machine)
 	// log.Println("calculate:", state)
 	if err != nil {
 		log.Println("calculate err:", err)
@@ -20,7 +20,7 @@ func (c *Config) calculate(machine string) error {
 		lastState = *state[0]
 	}
 	// log.Println("lastState:", lastState)
-	plcs, err := c.ApiRepository.GetPlcs(machine, lastState.Time, limit)
+	plcs, err := c.ApiRepository.GetPlcs(machine, lastState)
 	if err != nil {
 		return err
 	}

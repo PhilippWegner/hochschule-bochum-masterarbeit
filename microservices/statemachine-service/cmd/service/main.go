@@ -11,7 +11,6 @@ import (
 var (
 	restful_api = "http://localhost:8080/api/handle"
 	machines    = []string{"presse_11"}
-	limit       = 10000
 )
 
 type Config struct {

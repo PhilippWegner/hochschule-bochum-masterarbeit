@@ -1,7 +1,7 @@
 package data
 
 type Repository interface {
-	GetStates(machine string, limit int) ([]*State, error)
-	GetPlcs(machine string, time string, limit int) ([]*Plc, error)
+	GetStates(machine string) ([]*State, error)
+	GetPlcs(machine string, state State) ([]*Plc, error)
 	CreateState(state []*State) error
 }
