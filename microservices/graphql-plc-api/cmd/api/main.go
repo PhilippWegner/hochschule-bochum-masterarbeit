@@ -10,7 +10,7 @@ import (
 	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices/graphql-plc-api/graph"
 )
 
-const defaultPort = "8080"
+const defaultPort = "8082"
 
 func main() {
 	port := os.Getenv("PORT")

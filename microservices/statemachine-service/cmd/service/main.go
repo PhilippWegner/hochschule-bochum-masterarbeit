@@ -5,11 +5,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices-with-graphql/statemachine-service/data"
+	"github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices/statemachine-service/data"
 )
 
 var (
-	graphql_api = "http://localhost:8087/query"
+	restful_api = "http://localhost:8080/api/handle"
 	machines    = []string{"presse_11"}
 	limit       = 10000
 )
@@ -22,7 +22,7 @@ type Config struct {
 func main() {
 	log.Println("Starting application")
 	app := Config{}
-	app.ApiRepository = data.NewApiRepository(graphql_api)
+	app.ApiRepository = data.NewApiRepository(restful_api)
 	app.Machines = machines
 
 	log.Println("Starting looprunner")

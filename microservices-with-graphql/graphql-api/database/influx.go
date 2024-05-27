@@ -14,7 +14,7 @@ import (
 )
 
 var (
-	dbHost = "192.168.0.247"
+	dbHost = "localhost"
 	dbPort = "8086"
 	dbUser = "root"
 	dbPass = "root"

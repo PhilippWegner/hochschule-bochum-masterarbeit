@@ -10,7 +10,7 @@ import (
 	_ "github.com/PhilippWegner/hochschule-bochum-masterarbeit/microservices/restful-state-api/docs"
 )
 
-const defaultPort = "8080"
+const defaultPort = "8081"
 
 type Config struct {
 	Repo database.Repository
